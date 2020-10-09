@@ -15,13 +15,20 @@ function App() {
     getLocalTodos()
   }, [])
 
+
+
+
+
+  const getLocalTodos = () => {
+    if (localStorage.getItem('todos') === null) {
+      localStorage.setItem('todos', JSON.stringify([]));
+    } else {
+      let todoLocal = JSON.parse(localStorage.getItem('todos'))
+      setTodos(todoLocal);
+    }
+  }
+
   useEffect(() => {
-    handleFilter();
-    saveLocalTodos()
-  }, [todos, status])
-
-
-  const handleFilter = () => {
     switch (status) {
       case 'completed':
         setFilteredTodos(todos.filter(todo => todo.completed === true))
@@ -33,20 +40,9 @@ function App() {
         setFilteredTodos(todos)
         break
     }
-  }
-
-  const saveLocalTodos = () => {
     localStorage.setItem('todos', JSON.stringify(todos));
-  }
 
-  const getLocalTodos = () => {
-    if (localStorage.getItem('todos') === null) {
-      localStorage.setItem('todos', JSON.stringify([]));
-    } else {
-      let todoLocal = JSON.parse(localStorage.getItem('todos'))
-      setTodos(todoLocal);
-    }
-  }
+  }, [todos, status])
 
   return (
     <div className="app">
