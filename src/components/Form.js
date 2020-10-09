@@ -23,7 +23,6 @@ export default function Form({ inputText, setInputText, todos, setTodos, setStat
 
   const handleStatusChange = e => {
     setStatus(e.target.value)
-    console.log(e.target.value)
   }
   return (
     <div>
@@ -48,7 +47,7 @@ export default function Form({ inputText, setInputText, todos, setTodos, setStat
           <div className="todo-form__radio-container" onChange={handleStatusChange}>
             <input
               className="todo-form__radio"
-              checked={status === 'all'}
+              defaultChecked={status === 'all'}
               type="radio"
               id="all"
               name="filter"
