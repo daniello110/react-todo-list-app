@@ -1,5 +1,3 @@
-[DEMO]{https://dan-react-todo-list-app.netlify.app/}
-
 # Todo List App
 
 ## [APP DEMO](https://dan-react-todo-list-app.netlify.app/)
